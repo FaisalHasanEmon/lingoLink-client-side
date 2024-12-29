@@ -3,7 +3,7 @@ const Footer = () => {
   const logoWhite =
     "https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg";
   return (
-    <footer className="footer footer-center text-base-content rounded p-10 border border-red-500">
+    <footer className="footer footer-center text-base-content rounded p-10 bg-slate-300 ">
       <a href="#">
         <div className="border-2 border-white rounded-xl px-2">
           <img className="w-40" src={logoWhite} alt="" />

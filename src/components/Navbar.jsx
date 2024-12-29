@@ -1,19 +1,18 @@
 import React, { useContext } from "react";
 // import logo from "../assets/logo-croped.gif";
 import { NavLink } from "react-router-dom";
+import UseAuth from "../context/UseAuth";
 
 const Navbar = () => {
-  //   const handleSignOut = () => {
-  //     setUser(null);
-  //     logout();
-  //   };
-  const user = {
-    displayName: "Faisal",
-    photoURL:
-      "https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg",
+  const { logout, user, setUser } = UseAuth();
+
+  const handleSignOut = () => {
+    setUser(null);
+    logout();
+    console.log("I am working for logout");
   };
-  const logo =
-    "https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg";
+
+  const logo = user?.photoURL;
   const tabs = (
     <>
       <li>
@@ -40,7 +39,7 @@ const Navbar = () => {
     <div className="navbar bg-base-100 font-protestRiot fixed top-0 z-50 border-b-2 border-white shadow-md shadow-slate-500">
       <div className="flex-1 ">
         <a className="btn btn-ghost text-xl flex justify-center items-center  ">
-          <img className="h-12 w-full" src={logo} alt="Logo" srcset="" />
+          <img className="h-12 w-full" src={logo} alt="Logo" />
         </a>
       </div>
       <div className="flex-none gap-2">
@@ -89,6 +88,9 @@ const Navbar = () => {
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
               >
                 <li>
+                  <p>{user?.displayName}</p>
+                </li>
+                <li onClick={handleSignOut}>
                   <a>Logout</a>
                 </li>
               </ul>
