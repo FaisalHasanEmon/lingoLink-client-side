@@ -3,10 +3,10 @@ const Footer = () => {
   const logoWhite =
     "https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg";
   return (
-    <footer className="footer footer-center text-base-content rounded p-10 bg-slate-300 ">
+    <footer className="footer footer-center text-base-content rounded p-10 bg-[#ff9a1fb0] ">
       <a href="#">
-        <div className="border-2 border-white rounded-xl px-2">
-          <img className="w-40" src={logoWhite} alt="" />
+        <div className="flex justify-center items-center rounded-xl px-2">
+          <img className="w-[60%]" src="/public/LingoLink_Logo.png" alt="" />
         </div>
       </a>
       <nav>

@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-// import logo from "../assets/logo-croped.gif";
 import { NavLink } from "react-router-dom";
 import UseAuth from "../context/UseAuth";
 
@@ -16,30 +15,72 @@ const Navbar = () => {
   const tabs = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink
+          className="text-white   hover:bg-orange-500   bg-green-500 font-bold"
+          to="/"
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/find-tutors">Find Tutors</NavLink>
+        <NavLink
+          className="text-white   hover:bg-orange-500   bg-green-500 font-bold"
+          to="/find-tutors"
+        >
+          Find Tutors
+        </NavLink>
       </li>
-      <li>
-        <NavLink to="/add-tutorials">Add Tutorials</NavLink>
-      </li>
-      <li>
-        <NavLink to="/booked-tutors">My Booked Tutors</NavLink>
-      </li>
-      <li>
-        <NavLink to="/login">Login</NavLink>
-      </li>
-      <li>
-        <NavLink to="/register">Register</NavLink>
-      </li>
+      {user ? (
+        <>
+          <li>
+            <NavLink
+              className="text-white   hover:bg-orange-500   bg-green-500 font-bold"
+              to="/add-tutorials"
+            >
+              Add Tutorials
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className="text-white   hover:bg-orange-500   bg-green-500 font-bold"
+              to="/booked-tutors"
+            >
+              My Booked Tutors
+            </NavLink>
+          </li>
+        </>
+      ) : (
+        <>
+          {" "}
+          <li>
+            <NavLink
+              className="text-white   hover:bg-orange-500   bg-green-500 font-bold"
+              to="/login"
+            >
+              Login
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className="text-white   hover:bg-orange-500   bg-green-500 font-bold"
+              to="/register"
+            >
+              Register
+            </NavLink>
+          </li>
+        </>
+      )}
     </>
   );
   return (
-    <div className="navbar bg-base-100 font-protestRiot fixed top-0 z-50 border-b-2 border-white shadow-md shadow-slate-500">
+    <div className="navbar bg-base-100 font-protestRiot fixed top-0 z-50 border-b-2 border-white shadow-md shadow-orange-200">
       <div className="flex-1 ">
         <a className="btn btn-ghost text-xl flex justify-center items-center  ">
-          <img className="h-12 w-full" src={logo} alt="Logo" />
+          <img
+            className="h-12 w-full"
+            src="/public/LingoLink_Logo.png"
+            alt="Logo"
+          />
         </a>
       </div>
       <div className="flex-none gap-2">

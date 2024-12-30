@@ -78,7 +78,7 @@ const Login = () => {
   };
   return (
     <div>
-      <div className="py-4 flex justify-center items-center">
+      <div className="flex justify-center items-center">
         <div className=" card bg-base-100 w-full max-w-md shrink-0 border border-themeColor shadow-2xl ">
           {/* Main Login Form */}
           <form onSubmit={handleLogin} className="card-body">

@@ -7,6 +7,8 @@ import AddTutorials from "../pages/tutorials/AddTutorials";
 import MyBookedTutors from "../pages/bookings/MyBookedTutors";
 import Register from "../pages/auth/Register";
 import Home from "../pages/home/Home";
+import Category from "../pages/home/Category";
+import serverDomain from "../api/serdomain";
 
 const router = createBrowserRouter([
   {
@@ -18,12 +20,18 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
+        path: "/category/:category",
+        element: <Category></Category>,
+        loader: ({ params }) =>
+          fetch(`${serverDomain}/category?category=${params.category}`),
+      },
+      {
         path: "/find-tutors",
         element: <FindTutors></FindTutors>,
       },
       {
         path: "/add-tutorials",
-        element: <AddTutorials>s</AddTutorials>,
+        element: <AddTutorials></AddTutorials>,
       },
       {
         path: "/booked-tutors",
