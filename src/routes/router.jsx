@@ -10,6 +10,7 @@ import Home from "../pages/home/Home";
 import Category from "../pages/home/Category";
 import serverDomain from "../api/serdomain";
 import MyTutorials from "../pages/tutorials/MyTutorials";
+import Details from "../pages/detials/Details";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,12 @@ const router = createBrowserRouter([
       {
         path: "/add-tutorials",
         element: <AddTutorials></AddTutorials>,
+      },
+      {
+        path: "/details/:tutorId",
+        element: <Details></Details>,
+        loader: ({ params }) =>
+          fetch(`${serverDomain}/tutorDetails/${params.tutorId}`),
       },
       {
         path: "/my-tutorials",

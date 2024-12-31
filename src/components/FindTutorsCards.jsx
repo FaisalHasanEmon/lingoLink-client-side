@@ -4,9 +4,12 @@ import { FcViewDetails } from "react-icons/fc";
 import { GiStarsStack } from "react-icons/gi";
 import { ImPriceTags } from "react-icons/im";
 import { IoLanguage } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
-const FindTutorsCards = ({ tutor }) => {
-  const { name, email, image, language, price, description, review } = tutor;
+const FindTutorsCards = ({ tutor, cameFrom = "nowhere", handleDelete }) => {
+  const { _id, name, email, image, language, price, description, review } =
+    tutor;
+
   return (
     <div className="card bg-base-100  shadow-xl hover:scale-105 hover:duration-1000">
       <figure className="overflow-clip">
@@ -36,7 +39,27 @@ const FindTutorsCards = ({ tutor }) => {
         </div>
 
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">View Details</button>
+          {cameFrom === "myTutorials" ? (
+            <>
+              <Link>
+                <button
+                  className="btn btn-primary"
+                  onClick={() => handleDelete(_id)}
+                >
+                  Delete
+                </button>
+              </Link>
+              <Link>
+                <button className="btn btn-primary">Update</button>
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link to={`/details/${_id}`}>
+                <button className="btn btn-primary">View Details</button>
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </div>
