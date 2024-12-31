@@ -13,7 +13,7 @@ const MyTutorials = () => {
       .get(`${serverDomain}/myTutorials?email=${user?.email}`)
       .then((res) => setMyAddedTutorials(res.data))
       .catch((er) => console.log(er));
-  }, []);
+  }, [user]);
   return (
     <div>
       <div className="mt-3 mb-5">

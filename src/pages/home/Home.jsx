@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import serverDomain from "../../api/serdomain";
+import Banner from "../../components/Banner";
 
 const Home = () => {
   // UseStates
@@ -33,8 +34,11 @@ const Home = () => {
 
   return (
     <div>
+      <div className="md:w-11/12 mx-auto mb-8">
+        <Banner></Banner>
+      </div>
       {/* category section */}
-      <section className="mx-auto w-full lg:w-8/12 grid grid-cols-2  md:grid-cols-3 gap-2 md:gap-4">
+      <section className="mx-auto w-full lg:w-11/12 grid grid-cols-2  md:grid-cols-3 gap-2 md:gap-4">
         {categories.map((category) => (
           <Link
             key={category.category_id}

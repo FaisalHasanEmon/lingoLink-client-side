@@ -20,8 +20,8 @@ const FindTutorsCards = ({ tutor }) => {
           <p className="flex items-center gap-2">
             <IoLanguage /> Language : {language}
           </p>
-          <p className="flex items-start justify-center gap-2 ">
-            <p className="text-xl">
+          <p className="flex gap-1 ">
+            <p className="text-xl border ">
               <FcViewDetails />
             </p>
             <p>Description : {description}</p>

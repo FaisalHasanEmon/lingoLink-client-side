@@ -16,7 +16,7 @@ const Navbar = () => {
     <>
       <li>
         <NavLink
-          className="text-white   hover:bg-orange-500   bg-green-500 font-bold"
+          className="text-white   hover:bg-green-500   bg-orange-500 font-bold"
           to="/"
         >
           Home
@@ -24,7 +24,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          className="text-white   hover:bg-orange-500   bg-green-500 font-bold"
+          className="text-white   hover:bg-green-500   bg-orange-500 font-bold"
           to="/find-tutors"
         >
           Find Tutors
@@ -34,7 +34,7 @@ const Navbar = () => {
         <>
           <li>
             <NavLink
-              className="text-white   hover:bg-orange-500   bg-green-500 font-bold"
+              className="text-white   hover:bg-green-500   bg-orange-500 font-bold"
               to="/add-tutorials"
             >
               Add Tutorials
@@ -42,7 +42,7 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
-              className="text-white   hover:bg-orange-500   bg-green-500 font-bold"
+              className="text-white   hover:bg-green-500   bg-orange-500 font-bold"
               to="/my-tutorials"
             >
               My Tutorials
@@ -50,7 +50,7 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
-              className="text-white   hover:bg-orange-500   bg-green-500 font-bold"
+              className="text-white   hover:bg-green-500   bg-orange-500 font-bold"
               to="/booked-tutors"
             >
               My Booked Tutors
@@ -62,7 +62,7 @@ const Navbar = () => {
           {" "}
           <li>
             <NavLink
-              className="text-white   hover:bg-orange-500   bg-green-500 font-bold"
+              className="text-white   hover:bg-green-500   bg-orange-500 font-bold"
               to="/login"
             >
               Login
@@ -70,7 +70,7 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
-              className="text-white   hover:bg-orange-500   bg-green-500 font-bold"
+              className="text-white   hover:bg-green-500   bg-orange-500 font-bold"
               to="/register"
             >
               Register

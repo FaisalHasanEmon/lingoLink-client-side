@@ -17,15 +17,12 @@ const AddTutorials = () => {
     if (isNaN(price)) {
       return notifyError("Price Must Be A Number");
     }
-    if (!review) {
-      return notifyError("You've Forget To Give review");
-    }
     if (!language) {
       return notifyError("Language Is Required");
     }
     const newTutorial = {
       price: Number(price),
-      review: Number(review),
+      review: 0,
       language,
       ...leftData,
     };
@@ -135,11 +132,11 @@ const AddTutorials = () => {
                   <option disabled selected>
                     0
                   </option>
-                  <option>1</option>
+                  {/* <option>1</option>
                   <option>2</option>
                   <option>3</option>
                   <option>4</option>
-                  <option>5</option>
+                  <option>5</option> */}
                 </select>
               </label>
               <label className="form-control w-full md:col-span-2">
