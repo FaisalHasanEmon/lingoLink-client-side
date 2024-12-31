@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { LuEye, LuEyeOff } from "react-icons/lu";
 import { Link, useNavigate } from "react-router-dom";
 import UseAuth from "../../context/UseAuth";
+import axios from "axios";
+import serverDomain from "../../api/serdomain";
 
 const Register = () => {
   // Use State
@@ -27,9 +29,6 @@ const Register = () => {
     const photo = form.get("photo");
     const email = form.get("email");
     const password = form.get("password");
-    const newUser = { name, photo, email, password };
-    console.log(newUser);
-    console.log(nam);
 
     const regex =
       /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{6,}$/;
@@ -42,11 +41,20 @@ const Register = () => {
     createUser(email, password)
       .then((res) => {
         setUser(res.user);
+        const userInfo = res.user;
+
+        const displayName = name;
+        const email = userInfo.email;
+        const creationTime = userInfo.metadata.creationTime;
+        const photoURL = photo;
+        const newUser = { displayName, email, photoURL, creationTime };
+
+        axios.post(`${serverDomain}/newUser`, newUser);
+
         updateUserProfile(name, photo)
           .then(() => {
             setLoading(false);
             navigate("/");
-            console.log(res.user);
           })
           .catch((er) => notifyError(er.code.split("/")[1]));
       })

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import UseAuth from "../context/UseAuth";
 
 const Navbar = () => {
@@ -8,7 +8,6 @@ const Navbar = () => {
   const handleSignOut = () => {
     setUser(null);
     logout();
-    console.log("I am working for logout");
   };
 
   const logo = user?.photoURL;
@@ -83,13 +82,16 @@ const Navbar = () => {
   return (
     <div className="navbar bg-base-100 font-protestRiot fixed top-0 z-50 border-b-2 border-white shadow-md shadow-orange-200">
       <div className="flex-1 ">
-        <a className="btn btn-ghost text-xl flex justify-center items-center  ">
+        <Link
+          to="/"
+          className="btn btn-ghost text-xl flex justify-center items-center  "
+        >
           <img
             className="h-12 w-full"
             src="/public/LingoLink_Logo.png"
             alt="Logo"
           />
-        </a>
+        </Link>
       </div>
       <div className="flex-none gap-2">
         <div className="dropdown relative">

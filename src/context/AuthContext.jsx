@@ -11,9 +11,12 @@ import {
   sendPasswordResetEmail,
   GoogleAuthProvider,
   signInWithPopup,
+  getAuth,
 } from "firebase/auth";
+import app from "../firebase/firebase.config";
 
 const nam = "Faisal";
+
 // Context Provider
 export const Context = createContext();
 
@@ -22,7 +25,7 @@ const AuthContext = ({ children }) => {
   //   Use States
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const auth = getAuth(app);
   // Google Provider
   const googleProvider = new GoogleAuthProvider();
 
@@ -42,7 +45,7 @@ const AuthContext = ({ children }) => {
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo,
-    }).then((data) => console.log(data));
+    });
   };
 
   // Reset Password

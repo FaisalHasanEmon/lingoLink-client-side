@@ -3,6 +3,8 @@ import { BsGoogle } from "react-icons/bs";
 import { LuEye, LuEyeOff } from "react-icons/lu";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import UseAuth from "../../context/UseAuth";
+import serverDomain from "../../api/serdomain";
+import axios from "axios";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -26,6 +28,13 @@ const Login = () => {
     createAccountWithGoogle()
       .then((res) => {
         setUser(res.user);
+        const displayName = res.user.displayName;
+        const email = res.user.email;
+        const photoURL = res.user.photoURL;
+        const creationTime = res.user.metadata.creationTime;
+        const newUser = { displayName, email, photoURL, creationTime };
+
+        axios.post(`${serverDomain}/newUser`, newUser);
         navigate(location?.state ? location.state : "/");
       })
       .catch((er) => notifyError(er.code));
