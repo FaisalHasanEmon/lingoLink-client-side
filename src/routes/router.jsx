@@ -9,6 +9,7 @@ import Register from "../pages/auth/Register";
 import Home from "../pages/home/Home";
 import Category from "../pages/home/Category";
 import serverDomain from "../api/serdomain";
+import MyTutorials from "../pages/tutorials/MyTutorials";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/add-tutorials",
         element: <AddTutorials></AddTutorials>,
+      },
+      {
+        path: "/my-tutorials",
+        element: <MyTutorials></MyTutorials>,
       },
       {
         path: "/booked-tutors",
