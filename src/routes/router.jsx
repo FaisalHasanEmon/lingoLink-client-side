@@ -11,6 +11,7 @@ import Category from "../pages/home/Category";
 import serverDomain from "../api/serdomain";
 import MyTutorials from "../pages/tutorials/MyTutorials";
 import Details from "../pages/detials/Details";
+import UpdateTutorials from "../pages/updateMyTutorials/UpdateTutorials";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,12 @@ const router = createBrowserRouter([
       {
         path: "/my-tutorials",
         element: <MyTutorials></MyTutorials>,
+      },
+      {
+        path: "/my-tutorials/update/:id",
+        element: <UpdateTutorials></UpdateTutorials>,
+        loader: ({ params }) =>
+          fetch(`${serverDomain}/tutorDetails/${params.id}`),
       },
       {
         path: "/booked-tutors",

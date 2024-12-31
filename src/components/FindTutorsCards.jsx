@@ -49,7 +49,7 @@ const FindTutorsCards = ({ tutor, cameFrom = "nowhere", handleDelete }) => {
                   Delete
                 </button>
               </Link>
-              <Link>
+              <Link to={`/my-tutorials/update/${_id}`}>
                 <button className="btn btn-primary">Update</button>
               </Link>
             </>
