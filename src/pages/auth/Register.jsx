@@ -55,9 +55,11 @@ const Register = () => {
   return (
     <div>
       <div className="flex justify-center items-center">
-        <div className=" card bg-base-100 w-full max-w-lg shrink border border-themeColor shadow-2xl ">
+        <div className=" card bg-base-100 w-full max-w-lg shrink border border-green-100 shadow-orange-500 shadow-2xl ">
           <form onSubmit={handleNewUser} className="card-body">
-            <h2 className="text-center text-3xl">Create an account</h2>
+            <h2 className="text-center text-3xl font-bold">
+              Create an account
+            </h2>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Name</span>
@@ -113,7 +115,7 @@ const Register = () => {
               </div>
             </div>
             <div className="form-control mt-6">
-              <button className="btn bg-themeColor text-white hover:bg-green-900 hover:font-bold">
+              <button className="btn border-green-500 bg-white text-base border-2 font-bold hover:border-orange-500 hover:bg-transparent hover:font-extrabold ">
                 Register
               </button>
             </div>

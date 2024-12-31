@@ -79,10 +79,12 @@ const Login = () => {
   return (
     <div>
       <div className="flex justify-center items-center">
-        <div className=" card bg-base-100 w-full max-w-md shrink-0 border border-themeColor shadow-2xl ">
+        <div className=" card bg-base-100 w-full max-w-md shrink-0 border border-green-100 shadow-orange-500 shadow-2xl ">
           {/* Main Login Form */}
           <form onSubmit={handleLogin} className="card-body">
-            <h2 className="text-center text-3xl">Login Your Account</h2>
+            <h2 className="text-center text-3xl font-bold">
+              Login Your Account
+            </h2>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -125,7 +127,7 @@ const Login = () => {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn bg-themeColor text-white hover:bg-green-900 hover:font-bold">
+              <button className="btn border-green-500 bg-white text-base border-2 font-bold hover:border-orange-500 hover:bg-transparent hover:font-extrabold hover:bg-green-200">
                 Login
               </button>
             </div>
@@ -133,7 +135,7 @@ const Login = () => {
             <div className="form-control">
               <button
                 onClick={handleGoogleLogin}
-                className="btn bg-white text-themeColor border-themeColor hover:border-themeColor hover:bg-white hover:font-bold"
+                className="btn border-orange-500 bg-white text-base border-2 font-bold hover:border-green-500 hover:bg-transparent hover:font-extrabold hover:bg-orange-200"
               >
                 <BsGoogle></BsGoogle> Sign In With Google
               </button>
@@ -172,11 +174,11 @@ const Login = () => {
                       />
                     </div>
                     <div className="form-control mt-6 space-y-2">
-                      <button className="btn bg-themeColor text-white hover:bg-green-900 hover:font-bold">
+                      <button className="btn border-2 border-green-500 hover:bg-orange-500 hover:text-white hover:font-bold">
                         Submit
                       </button>
                       <form method="dialog">
-                        <button className="btn w-full border border-red-500 hover:bg-red-500 hover:text-white  text-black  hover:font-bold">
+                        <button className="btn  w-full border-2 border-red-500 hover:bg-red-500 hover:text-white  text-black  hover:font-bold">
                           Close
                         </button>
                       </form>

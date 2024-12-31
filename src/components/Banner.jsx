@@ -40,7 +40,10 @@ const Banner = () => {
             </>
           ) : (
             <>
-              <Link className="btn bg-transparent border-2 border-orange-500 hover:border-green-500 text-lg font-bold">
+              <Link
+                to="/login"
+                className="btn bg-transparent border-2 border-orange-500 hover:border-green-500 text-lg font-bold"
+              >
                 <button className="flex justify-between items-center gap-3">
                   <p>Get Started</p>
                   <figure className="w-5 h-5">
