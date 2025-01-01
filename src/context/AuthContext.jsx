@@ -25,7 +25,9 @@ const AuthContext = ({ children }) => {
   //   Use States
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [theme, setTheme] = useState(true);
   const auth = getAuth(app);
+
   // Google Provider
   const googleProvider = new GoogleAuthProvider();
 
@@ -93,7 +95,7 @@ const AuthContext = ({ children }) => {
       transition: Bounce,
     });
   };
-
+  console.log(theme);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -116,6 +118,8 @@ const AuthContext = ({ children }) => {
     notifyError,
     createAccountWithGoogle,
     nam,
+    theme,
+    setTheme,
   };
   return <Context.Provider value={context}>{children}</Context.Provider>;
 };

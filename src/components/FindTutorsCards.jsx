@@ -11,7 +11,7 @@ const FindTutorsCards = ({ tutor, cameFrom = "nowhere", handleDelete }) => {
     tutor;
 
   return (
-    <div className="card bg-base-100  shadow-xl hover:scale-105 hover:duration-1000">
+    <div className="card bg-transparent  shadow-xl hover:scale-105 hover:duration-1000">
       <figure className="overflow-clip">
         <img className="w-full " src={image} alt="Shoes" />
       </figure>

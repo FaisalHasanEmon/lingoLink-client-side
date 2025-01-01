@@ -19,6 +19,8 @@ const Login = () => {
     notifySuccess,
     notifyError,
     createAccountWithGoogle,
+    theme,
+    setTheme,
   } = UseAuth();
 
   // Handle Google Login
@@ -88,33 +90,37 @@ const Login = () => {
   return (
     <div>
       <div className="flex justify-center items-center">
-        <div className=" card bg-base-100 w-full max-w-md shrink-0 border border-green-100 shadow-orange-500 shadow-2xl ">
+        <div className=" card bg-base-100 bg-transparent  w-full max-w-md shrink-0 border border-green-100 shadow-orange-500 shadow-2xl ">
           {/* Main Login Form */}
-          <form onSubmit={handleLogin} className="card-body">
+          <form onSubmit={handleLogin} className="card-body ">
             <h2 className="text-center text-3xl font-bold">
               Login Your Account
             </h2>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Email</span>
+                <span className={`label-text ${theme ? "" : "text-white "}`}>
+                  Email
+                </span>
               </label>
               <input
                 type="email"
                 name="email"
                 placeholder="email"
-                className="input input-bordered"
+                className="input input-bordered bg-transparent"
                 required
               />
             </div>
             <div className="form-control relative">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className={`label-text ${theme ? "" : "text-white "}`}>
+                  Password
+                </span>
               </label>
               <input
                 type={seePassword ? "text" : "password"}
                 name="password"
                 placeholder="password"
-                className="input input-bordered"
+                className="input input-bordered bg-transparent "
                 required
               />
               <div
@@ -129,14 +135,16 @@ const Login = () => {
                     document.getElementById("my_modal_1").showModal()
                   }
                   href="#"
-                  className="label-text-alt link link-hover"
+                  className={`label-text-alt link link-hover ${
+                    theme ? "" : "text-white"
+                  } `}
                 >
                   Forgot password?
                 </a>
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn border-green-500 bg-white text-base border-2 font-bold hover:border-orange-500 hover:bg-transparent hover:font-extrabold hover:bg-green-200">
+              <button className="btn bg-transparent border-green-500 bg-white text-base border-2 font-bold hover:border-orange-500 hover:bg-transparent hover:font-extrabold hover:bg-green-200">
                 Login
               </button>
             </div>
@@ -144,7 +152,7 @@ const Login = () => {
             <div className="form-control">
               <button
                 onClick={handleGoogleLogin}
-                className="btn border-orange-500 bg-white text-base border-2 font-bold hover:border-green-500 hover:bg-transparent hover:font-extrabold hover:bg-orange-200"
+                className="btn bg-transparent border-orange-500 bg-white text-base border-2 font-bold hover:border-green-500 hover:bg-transparent hover:font-extrabold hover:bg-orange-200"
               >
                 <BsGoogle></BsGoogle> Sign In With Google
               </button>
@@ -163,7 +171,9 @@ const Login = () => {
             id="my_modal_1"
             className="modal border border-themeColor shadow-2xl "
           >
-            <div className="modal-box ">
+            <div
+              className={`modal-box ${theme ? "" : "bg-slate-600 text-white"}`}
+            >
               <div>
                 <div className=" card  w-full max-w-lg shrink-0 ">
                   <form onSubmit={handleForgetPassword} className="card-body">

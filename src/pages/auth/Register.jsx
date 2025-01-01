@@ -17,6 +17,8 @@ const Register = () => {
     notifyError,
     setLoading,
     nam,
+    theme,
+    setTheme,
   } = UseAuth();
 
   //   Navigate
@@ -62,57 +64,65 @@ const Register = () => {
   };
   return (
     <div>
-      <div className="flex justify-center items-center">
-        <div className=" card bg-base-100 w-full max-w-lg shrink border border-green-100 shadow-orange-500 shadow-2xl ">
+      <div className="flex justify-center items-center ">
+        <div className=" card bg-transparent w-full max-w-lg shrink border border-green-100 shadow-orange-500 shadow-2xl ">
           <form onSubmit={handleNewUser} className="card-body">
             <h2 className="text-center text-3xl font-bold">
               Create an account
             </h2>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Name</span>
+                <span className={`label-text ${theme ? "" : "text-white "}`}>
+                  Name
+                </span>
               </label>
               <input
                 type="text"
                 name="name"
                 placeholder="name"
-                className="input input-bordered"
+                className="input input-bordered bg-transparent"
                 required
               />
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Photo URL</span>
+                <span className={`label-text ${theme ? "" : "text-white "}`}>
+                  Photo URL
+                </span>
               </label>
               <input
                 type="text"
                 name="photo"
                 placeholder="photo url"
-                className="input input-bordered"
+                className="input input-bordered bg-transparent"
                 required
               />
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Email</span>
+                <span className={`label-text ${theme ? "" : "text-white "}`}>
+                  Email
+                </span>
               </label>
               <input
                 type="email"
                 name="email"
                 placeholder="email"
-                className="input input-bordered"
+                className="input input-bordered bg-transparent"
                 required
               />
             </div>
             <div className="form-control relative">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className={`label-text ${theme ? "" : "text-white "}`}>
+                  Password
+                </span>
               </label>
               <input
                 type={seePassword ? "text" : "password"}
                 name="password"
                 placeholder="password"
-                className="input input-bordered"
+                className="input input-bordered bg-transparent"
                 required
               />
               <div
@@ -123,7 +133,7 @@ const Register = () => {
               </div>
             </div>
             <div className="form-control mt-6">
-              <button className="btn border-green-500 bg-white text-base border-2 font-bold hover:border-orange-500 hover:bg-transparent hover:font-extrabold ">
+              <button className="btn border-green-500 bg-transparent text-base border-2 font-bold hover:border-orange-500  hover:bg-transparent hover:font-extrabold ">
                 Register
               </button>
             </div>

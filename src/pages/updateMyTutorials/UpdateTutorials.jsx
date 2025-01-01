@@ -5,7 +5,7 @@ import axios from "axios";
 import serverDomain from "../../api/serdomain";
 
 const UpdateTutorials = () => {
-  const { notifyError, notifySuccess } = UseAuth();
+  const { notifyError, notifySuccess, theme } = UseAuth();
   const previousData = useLoaderData();
   const navigate = useNavigate();
   console.log(previousData._id);
@@ -46,7 +46,12 @@ const UpdateTutorials = () => {
         <div className="border-2 border-green-500 p-4 rounded-xl w-11/12 mx-auto">
           <h2 className="text-2xl">Update Tutorial</h2>
           <div className="mt-14">
-            <form onSubmit={handleUpdateTutorial}>
+            <form
+              onSubmit={handleUpdateTutorial}
+              className={
+                theme ? "" : "[&_input]:bg-transparent [&_span]:text-white "
+              }
+            >
               <div className="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
                 <label className="form-control w-full">
                   <div className="label">
@@ -97,21 +102,46 @@ const UpdateTutorials = () => {
                   <div className="label">
                     <span className="label-text text-base">Language</span>
                   </div>
-                  <select className="select select-bordered" name="newLanguage">
+                  <select
+                    className={`select select-bordered ${
+                      theme ? "" : "bg-slate-500"
+                    }`}
+                    name="newLanguage"
+                  >
                     <option disabled selected>
                       Pick one
                     </option>
 
-                    <option selected>{previousData?.language}</option>
-                    <option>English</option>
-                    <option>Bangla</option>
-                    <option>Hindi</option>
-                    <option>Chinese</option>
-                    <option>French</option>
-                    <option>Arabic</option>
-                    <option>German</option>
-                    <option>Portuguese</option>
-                    <option>Japanese</option>
+                    <option className={theme ? "" : "bg-slate-600 "} selected>
+                      {previousData?.language}
+                    </option>
+                    <option className={theme ? "" : "bg-slate-600 "}>
+                      English
+                    </option>
+                    <option className={theme ? "" : "bg-slate-600 "}>
+                      Bangla
+                    </option>
+                    <option className={theme ? "" : "bg-slate-600 "}>
+                      Hindi
+                    </option>
+                    <option className={theme ? "" : "bg-slate-600 "}>
+                      Chinese
+                    </option>
+                    <option className={theme ? "" : "bg-slate-600 "}>
+                      French
+                    </option>
+                    <option className={theme ? "" : "bg-slate-600 "}>
+                      Arabic
+                    </option>
+                    <option className={theme ? "" : "bg-slate-600 "}>
+                      German
+                    </option>
+                    <option className={theme ? "" : "bg-slate-600 "}>
+                      Portuguese
+                    </option>
+                    <option className={theme ? "" : "bg-slate-600 "}>
+                      Japanese
+                    </option>
                   </select>
                 </label>
 
@@ -134,7 +164,9 @@ const UpdateTutorials = () => {
                     <span className="label-text text-base">Review</span>
                   </div>
                   <select
-                    className="select select-bordered"
+                    className={`select select-bordered ${
+                      theme ? "" : "bg-slate-500"
+                    }`}
                     name="newReview"
                     required
                   >
@@ -147,11 +179,12 @@ const UpdateTutorials = () => {
                   <div className="label">
                     <span className="label-text text-base">Description</span>
                   </div>
-                  <input
-                    type="text"
+                  <textarea
                     placeholder="Description"
                     name="newDescription"
-                    className="input input-bordered h-[200px]"
+                    className={`input input-bordered h-[200px] p-3 ${
+                      theme ? "" : "bg-slate-500"
+                    }`}
                     defaultValue={previousData?.description}
                     required
                   />

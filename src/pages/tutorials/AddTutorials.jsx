@@ -4,7 +4,7 @@ import serverDomain from "../../api/serdomain";
 import { useNavigate } from "react-router-dom";
 
 const AddTutorials = () => {
-  const { user, notifyError, notifySuccess } = UseAuth();
+  const { user, notifyError, notifySuccess, theme } = UseAuth();
   const navigate = useNavigate();
   const handleTutorial = (e) => {
     e.preventDefault();
@@ -47,26 +47,38 @@ const AddTutorials = () => {
             <div className="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
               <label className="form-control w-full">
                 <div className="label">
-                  <span className="label-text text-base">User Name</span>
+                  <span
+                    className={`label-text text-base ${
+                      theme ? "" : "text-white"
+                    }`}
+                  >
+                    User Name
+                  </span>
                 </div>
                 <input
                   type="text"
                   placeholder="Item Name"
                   name="name"
-                  className="input input-bordered"
+                  className="input input-bordered bg-transparent"
                   defaultValue={user?.displayName}
                   readOnly
                 />
               </label>
               <label className="form-control w-full">
                 <div className="label">
-                  <span className="label-text text-base">User Email</span>
+                  <span
+                    className={`label-text text-base ${
+                      theme ? "" : "text-white"
+                    }`}
+                  >
+                    User Email
+                  </span>
                 </div>
                 <input
                   type="text"
                   placeholder="Item Name"
                   name="email"
-                  className="input input-bordered "
+                  className="input input-bordered bg-transparent"
                   defaultValue={user?.email}
                   readOnly
                 />
@@ -77,55 +89,100 @@ const AddTutorials = () => {
               {/* Row 1 */}
               <label className="form-control w-full">
                 <div className="label">
-                  <span className="label-text text-base">Tutors Photo URL</span>
+                  <span
+                    className={`label-text text-base ${
+                      theme ? "" : "text-white"
+                    }`}
+                  >
+                    Tutors Photo URL
+                  </span>
                 </div>
                 <input
                   type="text"
                   placeholder="Photo URL"
                   name="image"
-                  className="input input-bordered"
+                  className="input input-bordered bg-transparent"
                   required
                 />
               </label>
               <label className="form-control w-full">
                 <div className="label">
-                  <span className="label-text text-base">Language</span>
+                  <span
+                    className={`label-text text-base ${
+                      theme ? "" : "text-white"
+                    }`}
+                  >
+                    Language
+                  </span>
                 </div>
-                <select className="select select-bordered" name="language">
-                  <option disabled selected>
+                <select
+                  className="select select-bordered bg-transparent "
+                  name="language"
+                >
+                  <option disabled selected className="bg-transparent">
                     Pick one
                   </option>
-                  <option>English</option>
-                  <option>Bangla</option>
-                  <option>Hindi</option>
-                  <option>Chinese</option>
-                  <option>French</option>
-                  <option>Arabic</option>
-                  <option>German</option>
-                  <option>Portuguese</option>
-                  <option>Japanese</option>
+                  <option className={theme ? "" : "bg-slate-600 text-white"}>
+                    English
+                  </option>
+                  <option className={theme ? "" : "bg-slate-600 text-white"}>
+                    Bangla
+                  </option>
+                  <option className={theme ? "" : "bg-slate-600 text-white"}>
+                    Hindi
+                  </option>
+                  <option className={theme ? "" : "bg-slate-600 text-white"}>
+                    Chinese
+                  </option>
+                  <option className={theme ? "" : "bg-slate-600 text-white"}>
+                    French
+                  </option>
+                  <option className={theme ? "" : "bg-slate-600 text-white"}>
+                    Arabic
+                  </option>
+                  <option className={theme ? "" : "bg-slate-600 text-white"}>
+                    German
+                  </option>
+                  <option className={theme ? "" : "bg-slate-600 text-white"}>
+                    Portuguese
+                  </option>
+                  <option className={theme ? "" : "bg-slate-600 text-white"}>
+                    Japanese
+                  </option>
                 </select>
               </label>
 
               {/* Row 2 */}
               <label className="form-control w-full">
                 <div className="label">
-                  <span className="label-text text-base">Price</span>
+                  <span
+                    className={`label-text text-base ${
+                      theme ? "" : "text-white"
+                    }`}
+                  >
+                    Price
+                  </span>
                 </div>
                 <input
                   type="text"
                   placeholder="Price"
                   name="price"
-                  className="input input-bordered"
+                  className="input input-bordered bg-transparent"
                   required
                 />
               </label>
               <label className="form-control w-full">
                 <div className="label">
-                  <span className="label-text text-base">Review</span>
+                  <span
+                    className={`label-text text-base ${
+                      theme ? "" : "text-white"
+                    }`}
+                  >
+                    Review
+                  </span>
                 </div>
                 <select
-                  className="select select-bordered"
+                  className="select select-bordered bg-transparent"
                   name="review"
                   required
                 >
@@ -141,13 +198,18 @@ const AddTutorials = () => {
               </label>
               <label className="form-control w-full md:col-span-2">
                 <div className="label">
-                  <span className="label-text text-base">Description</span>
+                  <span
+                    className={`label-text text-base ${
+                      theme ? "" : "text-white"
+                    }`}
+                  >
+                    Description
+                  </span>
                 </div>
-                <input
-                  type="text"
+                <textarea
                   placeholder="Description"
                   name="description"
-                  className="input input-bordered h-[200px]"
+                  className="input input-bordered h-[200px] bg-transparent p-3"
                   required
                 />
               </label>
