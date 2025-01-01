@@ -3,12 +3,16 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import serverDomain from "../../api/serdomain";
 import Banner from "../../components/Banner";
+import { FaUsers } from "react-icons/fa";
+import { GiBookshelf } from "react-icons/gi";
+import { LuLanguages } from "react-icons/lu";
 
 const Home = () => {
   // UseStates
   const [categories, setCategories] = useState([]); //Categories
   const [numberOfTutors, setNumberOfTutors] = useState([]); //Categories
-
+  const [numberOfUsersAndTutorials, setNumberOfUsersAndTutorials] =
+    useState(null);
   // Load Categories UseEffect
   useEffect(() => {
     axios
@@ -18,11 +22,34 @@ const Home = () => {
 
   // Load Number of Tutors Per Categories
   useEffect(() => {
+    //It finds the number of tutors per category
     axios
       .get(`${serverDomain}/category/numberOfTutors`)
       .then((res) => setNumberOfTutors(res.data));
+
+    // Number of users and tutorials
+    axios
+      .get(`${serverDomain}/countUser&Tutorials`)
+      .then((res) => setNumberOfUsersAndTutorials(res.data));
   }, []);
 
+  const stats = [
+    {
+      number: numberOfUsersAndTutorials?.numberOfUsers,
+      state: "Users",
+      icon: <FaUsers />,
+    },
+    {
+      number: numberOfUsersAndTutorials?.numberOfTutorials,
+      state: "Tutorials",
+      icon: <GiBookshelf />,
+    },
+    {
+      number: 9,
+      state: "Languages",
+      icon: <LuLanguages />,
+    },
+  ];
   // Function Showing the number of teacher in each category
   const tutorNumberInCategory = (tutor_language) => {
     const numbers = numberOfTutors.find(
@@ -37,6 +64,20 @@ const Home = () => {
       <div className="md:w-11/12 mx-auto mb-8">
         <Banner></Banner>
       </div>
+      {/* State Section */}
+      <section className="lg:w-6/12 mx-auto grid grid-cols-3 gap-2 lg:gap-4 *:border-2 *:border-green-100 *:rounded-lg mt-14 mb-10  *:shadow-orange-300 *:shadow-md ">
+        {stats.map((item, index) => (
+          <div
+            key={index}
+            className="flex flex-col items-center lg:*:text-3xl p-2 "
+          >
+            <p className="font-bold">{item.number}+</p>
+            <p className="flex items-center gap-2">
+              {item.icon} {item.state}
+            </p>
+          </div>
+        ))}
+      </section>
       {/* category section */}
       <section className="mx-auto w-full lg:w-11/12 grid grid-cols-2  md:grid-cols-3 gap-2 md:gap-4">
         {categories.map((category) => (
