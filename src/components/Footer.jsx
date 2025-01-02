@@ -12,7 +12,7 @@ const Footer = () => {
         </div>
       </a>
       <nav>
-        <div className="grid grid-cols-1 gap-5">
+        <div className="flex gap-4">
           <a>
             <FaLinkedin className="w-6 h-6" />
           </a>
@@ -42,8 +42,8 @@ const Footer = () => {
       </nav>
       <aside>
         <p>
-          Copyright © {new Date().getFullYear()} - All right reserved by
-          LingoLink Ltd
+          Copyright © {new Date().getFullYear()} - All right reserved by{" "}
+          <span className="font-bold">Faisal Hasan Emon</span>
         </p>
       </aside>
     </footer>
