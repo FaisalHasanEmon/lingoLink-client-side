@@ -12,6 +12,7 @@ import serverDomain from "../api/serdomain";
 import MyTutorials from "../pages/tutorials/MyTutorials";
 import Details from "../pages/detials/Details";
 import UpdateTutorials from "../pages/updateMyTutorials/UpdateTutorials";
+import PrivateRouter from "./PrivateRouter";
 
 const router = createBrowserRouter([
   {
@@ -34,27 +35,47 @@ const router = createBrowserRouter([
       },
       {
         path: "/add-tutorials",
-        element: <AddTutorials></AddTutorials>,
+        element: (
+          <PrivateRouter>
+            <AddTutorials></AddTutorials>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/details/:tutorId",
-        element: <Details></Details>,
+        element: (
+          <PrivateRouter>
+            <Details></Details>
+          </PrivateRouter>
+        ),
         loader: ({ params }) =>
           fetch(`${serverDomain}/tutorDetails/${params.tutorId}`),
       },
       {
         path: "/my-tutorials",
-        element: <MyTutorials></MyTutorials>,
+        element: (
+          <PrivateRouter>
+            <MyTutorials></MyTutorials>,
+          </PrivateRouter>
+        ),
       },
       {
         path: "/my-tutorials/update/:id",
-        element: <UpdateTutorials></UpdateTutorials>,
+        element: (
+          <PrivateRouter>
+            <UpdateTutorials></UpdateTutorials>
+          </PrivateRouter>
+        ),
         loader: ({ params }) =>
           fetch(`${serverDomain}/tutorDetails/${params.id}`),
       },
       {
         path: "/booked-tutors",
-        element: <MyBookedTutors></MyBookedTutors>,
+        element: (
+          <PrivateRouter>
+            <MyBookedTutors></MyBookedTutors>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/login",
