@@ -9,6 +9,7 @@ import { LuLanguages } from "react-icons/lu";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import OurTutors from "../../components/OurTutors";
+import { MdPreview } from "react-icons/md";
 
 const Home = () => {
   // UseStates
@@ -33,7 +34,7 @@ const Home = () => {
       .get(`${serverDomain}/countUser&Tutorials`)
       .then((res) => setNumberOfUsersAndTutorials(res.data));
   }, []);
-
+  console.log(numberOfUsersAndTutorials);
   // Aos animation
   useEffect(() => {
     Aos.init({ duration: 1000 });
@@ -56,6 +57,11 @@ const Home = () => {
         state: "Languages",
         icon: <LuLanguages />,
       },
+      {
+        number: numberOfUsersAndTutorials?.total,
+        state: "Reviews",
+        icon: <MdPreview />,
+      },
     ] || [];
   // Function Showing the number of teacher in each category
   const tutorNumberInCategory = (tutor_language) => {
@@ -72,15 +78,15 @@ const Home = () => {
         <Banner></Banner>
       </div>
       {/* State Section */}
-      <section className="lg:w-6/12 mx-auto grid grid-cols-3 gap-2 lg:gap-4 *:border-2 *:border-green-100 *:rounded-lg mt-14 mb-10  *:shadow-orange-300 *:shadow-md ">
+      <section className="lg:w-11/12 mx-auto grid grid-cols-4 gap-2 lg:gap-4 *:border-2 *:border-green-100 *:rounded-lg mt-14 mb-10  *:shadow-orange-300 *:shadow-md ">
         {stats?.map((item, index) => (
           <div
             data-aos="zoom-in"
             key={index}
             className="flex flex-col items-center lg:*:text-3xl p-2 "
           >
-            <p className="font-bold">{item.number}+</p>
-            <p className="flex items-center gap-2">
+            <p className="text-base font-bold">{item.number}+</p>
+            <p className="text-sm flex items-center gap-[2px]">
               {item.icon} {item.state}
             </p>
           </div>
@@ -96,10 +102,10 @@ const Home = () => {
           >
             <div className="border-2 border-[#37ff00] hover:bg-orange-300 hover:scale-105 hover:shadow-green-300 hover:shadow-lg shadow-orange-300 shadow-md rounded-lg p-3 flex justify-between items-center ">
               <div className="flex justify-start items-center gap-2 md:gap-4">
-                <figure className="w-6 md:w-10">
+                <figure className="w-4 md:w-10">
                   <img className="w-full" src={category.language_logo} alt="" />
                 </figure>
-                <p className="text-lg md:text-2xl font-bold">
+                <p className="text-base md:text-2xl font-bold">
                   {category.language}
                   <br />
                   <span className="text-base md:text-xl font-semibold">
@@ -108,7 +114,7 @@ const Home = () => {
                 </p>
               </div>
               <div>
-                <figure className="w-6 md:w-10 ">
+                <figure className="w-4 md:w-10 ">
                   <img
                     className="w-full"
                     src="/language_category_logo/navigate_logo.gif"

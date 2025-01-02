@@ -22,7 +22,7 @@ const FindTutorsCards = ({ tutor, cameFrom = "nowhere", handleDelete }) => {
       data-aos="zoom-in-up"
       className="card bg-transparent  shadow-xl hover:scale-105 hover:duration-1000"
     >
-      <figure className="overflow-clip lg:w-[461px] lg:h-[307px]">
+      <figure className="overflow-clip lg:h-[307px]">
         <img
           className="w-full lg:h-full lg:object-cover "
           src={image}
@@ -53,20 +53,22 @@ const FindTutorsCards = ({ tutor, cameFrom = "nowhere", handleDelete }) => {
         </div>
 
         {/* Buttons */}
-        <div className="card-actions justify-end">
+        <div className="card-actions justify-end [&_button]:bg-orange-500 [&_button]:text-white ">
           {/* For My Tutorials Page */}
           {cameFrom === "myTutorials" ? (
             <>
               <Link>
                 <button
-                  className="btn btn-primary"
+                  className="btn  text-white hover:bg-green-500"
                   onClick={() => handleDelete(_id)}
                 >
                   Delete
                 </button>
               </Link>
               <Link to={`/my-tutorials/update/${_id}`}>
-                <button className="btn btn-primary">Update</button>
+                <button className="btn  text-white hover:bg-green-500">
+                  Update
+                </button>
               </Link>
             </>
           ) : (
@@ -77,7 +79,9 @@ const FindTutorsCards = ({ tutor, cameFrom = "nowhere", handleDelete }) => {
           {cameFrom === "nowhere" ? (
             <>
               <Link to={`/details/${_id}`}>
-                <button className="btn btn-primary">View Details</button>
+                <button className="btn  text-white hover:bg-green-500">
+                  View Details
+                </button>
               </Link>
             </>
           ) : (
@@ -89,14 +93,16 @@ const FindTutorsCards = ({ tutor, cameFrom = "nowhere", handleDelete }) => {
             <>
               <Link>
                 <button
-                  className="btn btn-primary"
+                  className="btn  text-white hover:bg-green-500"
                   onClick={() => handleDelete(_id)}
                 >
                   Delete
                 </button>
               </Link>
               <Link>
-                <button className="btn btn-primary">Review</button>
+                <button className="btn  text-white hover:bg-green-500">
+                  Review
+                </button>
               </Link>
             </>
           ) : (
