@@ -95,7 +95,7 @@ const AuthContext = ({ children }) => {
       transition: Bounce,
     });
   };
-  console.log(theme);
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);

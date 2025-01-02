@@ -144,7 +144,11 @@ const Navbar = () => {
       </div>
       <div className="flex-none gap-2">
         <div className="dropdown relative">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn text-black btn-ghost lg:hidden"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaChalkboardTeacher, FaDollarSign, FaRegStar } from "react-icons/fa";
 import { IoLanguageSharp } from "react-icons/io5";
 import {
@@ -6,10 +6,62 @@ import {
   MdOutlineAlternateEmail,
   MdOutlineVerified,
 } from "react-icons/md";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import UseAuth from "../../context/UseAuth";
+import axios from "axios";
+import serverDomain from "../../api/serdomain";
+import { use } from "react";
 
 const Details = () => {
+  const { user, notifySuccess } = UseAuth();
   const tutor = useLoaderData();
+  const navigate = useNavigate();
+  const [isBooked, setBooked] = useState();
+
+  useEffect(() => {
+    axios
+      .get(`${serverDomain}/bookTutorial/${user?.email}&${tutor?._id}`)
+      .then(async (res) => {
+        setBooked(await res.data?.exists);
+      });
+  }, [user]);
+
+  const check = () => {
+    if (user?.email === tutor?.email) {
+      return true;
+    }
+    if (isBooked) {
+      return true;
+    }
+    return false;
+  };
+  const checkMessage = () => {
+    if (user?.email === tutor?.email) {
+      return "You've Added This Tutorial";
+    }
+    if (isBooked) {
+      return "You've Already Booked This Tutorial";
+    }
+    return false;
+  };
+
+  const handleBookTutorial = () => {
+    const userEmail = user.email;
+    const userName = user.displayName;
+    const { _id: tutorId, ...remainingTutorInfo } = tutor;
+    const bookedTutorial = {
+      tutorId,
+      userName,
+      userEmail,
+      ...remainingTutorInfo,
+    };
+    axios.post(`${serverDomain}/bookTutorial`, bookedTutorial).then((res) => {
+      if (res.data.acknowledged) {
+        notifySuccess("Appointment Successful");
+        navigate("/booked-tutors");
+      }
+    });
+  };
 
   //   {
   //     description: "Graduated From Dhaka University, Teacher at Khulna University";
@@ -22,7 +74,6 @@ const Details = () => {
   //     _id: "67732ae1171b92e7ce59dacb";
   //   }
 
-  console.log(tutor);
   return (
     <div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 ">
@@ -67,8 +118,13 @@ const Details = () => {
               <FaDollarSign />
             </p>
           </div>
-          <div>
-            <button className="btn text-2xl border-2 border-orange-500 bg-transparent hover:border-green-500 hover:bg-transparent">
+          <div className="space-y-3">
+            <p className="font-bold">{checkMessage()}</p>
+            <button
+              onClick={handleBookTutorial}
+              disabled={check()}
+              className="btn text-2xl border-2 border-orange-500 bg-transparent hover:border-green-500 hover:bg-transparent"
+            >
               Book An Appointment
             </button>
           </div>
