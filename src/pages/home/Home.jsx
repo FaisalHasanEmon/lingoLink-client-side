@@ -8,6 +8,7 @@ import { GiBookshelf } from "react-icons/gi";
 import { LuLanguages } from "react-icons/lu";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import OurTutors from "../../components/OurTutors";
 
 const Home = () => {
   // UseStates
@@ -117,6 +118,10 @@ const Home = () => {
             </div>
           </Link>
         ))}
+      </section>
+      {/* Our tutors */}
+      <section className="mx-auto w-full lg:w-11/12 my-10">
+        <OurTutors></OurTutors>
       </section>
     </div>
   );

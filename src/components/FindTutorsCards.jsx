@@ -22,10 +22,14 @@ const FindTutorsCards = ({ tutor, cameFrom = "nowhere", handleDelete }) => {
       data-aos="zoom-in-up"
       className="card bg-transparent  shadow-xl hover:scale-105 hover:duration-1000"
     >
-      <figure className="overflow-clip">
-        <img className="w-full " src={image} alt="Shoes" />
+      <figure className="overflow-clip lg:w-[461px] lg:h-[307px]">
+        <img
+          className="w-full lg:h-full lg:object-cover "
+          src={image}
+          alt="Shoes"
+        />
       </figure>
-      <div className="card-body flex-grow-1 *:text-lg">
+      <div className="card-body flex flex-col justify-between items-start *:text-lg">
         <div>
           <p className="card-title flex items-center">
             <BsPersonVideo2 /> {name}
@@ -34,7 +38,7 @@ const FindTutorsCards = ({ tutor, cameFrom = "nowhere", handleDelete }) => {
             <IoLanguage /> Language : {language}
           </p>
           <p className="flex gap-1 ">
-            <p className="text-xl border ">
+            <p className="text-xl  ">
               <FcViewDetails />
             </p>
             <p>Description : {description}</p>
@@ -48,6 +52,7 @@ const FindTutorsCards = ({ tutor, cameFrom = "nowhere", handleDelete }) => {
           </p>
         </div>
 
+        {/* Buttons */}
         <div className="card-actions justify-end">
           {/* For My Tutorials Page */}
           {cameFrom === "myTutorials" ? (
