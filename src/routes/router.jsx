@@ -13,11 +13,13 @@ import MyTutorials from "../pages/tutorials/MyTutorials";
 import Details from "../pages/detials/Details";
 import UpdateTutorials from "../pages/updateMyTutorials/UpdateTutorials";
 import PrivateRouter from "./PrivateRouter";
+import Error from "../pages/error/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout></RootLayout>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "/",

@@ -17,16 +17,12 @@ const FindTutors = () => {
   const handleSearchBar = (e) => {
     e.preventDefault();
     setSearch(e.target.searchKey.value);
-    console.log(search);
     e.target.searchKey.value = "";
   };
 
   // reset function
   const handleReset = (e) => {
-    // e.preventDefault();
     setSearch("");
-    console.log("Reset");
-    // e.target.searchKey.value = "";
   };
 
   const numberOfPages = Math.ceil(count / itemsPerPage);
