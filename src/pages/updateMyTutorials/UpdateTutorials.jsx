@@ -8,8 +8,7 @@ const UpdateTutorials = () => {
   const { notifyError, notifySuccess, theme } = UseAuth();
   const previousData = useLoaderData();
   const navigate = useNavigate();
-  console.log(previousData._id);
-  console.log(previousData?.image);
+
   const handleUpdateTutorial = (e) => {
     e.preventDefault();
     const newFrom = new FormData(e.target);
@@ -31,14 +30,10 @@ const UpdateTutorials = () => {
       ...leftNewData,
     };
 
-    axios
-      .put(`${serverDomain}/myTutorials`, updatedTutorial)
-      .then((res) => {
-        notifySuccess("Tutorial Updated");
-        navigate("/my-tutorials");
-      })
-      .catch((er) => console.log(er));
-    console.log(updatedTutorial);
+    axios.put(`${serverDomain}/myTutorials`, updatedTutorial).then((res) => {
+      notifySuccess("Tutorial Updated");
+      navigate("/my-tutorials");
+    });
   };
   return (
     <div>

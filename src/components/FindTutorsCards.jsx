@@ -39,6 +39,7 @@ const FindTutorsCards = ({ tutor, cameFrom = "nowhere", handleDelete }) => {
         </div>
 
         <div className="card-actions justify-end">
+          {/* For My Tutorials Page */}
           {cameFrom === "myTutorials" ? (
             <>
               <Link>
@@ -54,11 +55,37 @@ const FindTutorsCards = ({ tutor, cameFrom = "nowhere", handleDelete }) => {
               </Link>
             </>
           ) : (
+            <></>
+          )}
+
+          {/* For Find Tutorials Page */}
+          {cameFrom === "nowhere" ? (
             <>
               <Link to={`/details/${_id}`}>
                 <button className="btn btn-primary">View Details</button>
               </Link>
             </>
+          ) : (
+            <></>
+          )}
+
+          {/* For My Booked Tutorials Page */}
+          {cameFrom === "myBookings" ? (
+            <>
+              <Link>
+                <button
+                  className="btn btn-primary"
+                  onClick={() => handleDelete(_id)}
+                >
+                  Delete
+                </button>
+              </Link>
+              <Link>
+                <button className="btn btn-primary">Review</button>
+              </Link>
+            </>
+          ) : (
+            <></>
           )}
         </div>
       </div>

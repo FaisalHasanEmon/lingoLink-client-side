@@ -5,7 +5,7 @@ import UseAuth from "../../context/UseAuth";
 import serverDomain from "../../api/serdomain";
 
 const MyBookedTutors = () => {
-  const { user } = UseAuth();
+  const { user, notifySuccess } = UseAuth();
   const [myBookings, setMyBookings] = useState([]);
   useEffect(() => {
     axios
@@ -13,9 +13,17 @@ const MyBookedTutors = () => {
       .then((res) => setMyBookings(res?.data));
   }, [user]);
   const cameFrom = "myBookings";
-  console.log(myBookings);
-  const handleDelete = () => {
-    console.log("Item Deleted");
+
+  const handleDelete = (id) => {
+    axios
+      .delete(`${serverDomain}/delete-bookTutorial/${user?.email}&${id}`)
+      .then((res) => {
+        const remainingBookings = myBookings.filter(
+          (bookings) => bookings._id !== id
+        );
+        setMyBookings(remainingBookings);
+        notifySuccess("Successfully Deleted ");
+      });
   };
   return (
     <div>

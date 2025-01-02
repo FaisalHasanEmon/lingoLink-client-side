@@ -20,8 +20,8 @@ const FindTutors = () => {
   useEffect(() => {
     axios
       .get(`${serverDomain}/tutors?page=${currentPage}&size=${itemsPerPage}`)
-      .then((res) => setTutors(res.data))
-      .catch((er) => console.log(er));
+      .then((res) => setTutors(res.data));
+
     setLoading(false);
   }, [currentPage, itemsPerPage]);
 

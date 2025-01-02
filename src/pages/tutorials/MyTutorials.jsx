@@ -19,8 +19,7 @@ const MyTutorials = () => {
   useEffect(() => {
     axios
       .get(`${serverDomain}/myTutorials?email=${user?.email}`)
-      .then((res) => setMyAddedTutorials(res.data))
-      .catch((er) => console.log(er));
+      .then((res) => setMyAddedTutorials(res.data));
   }, [user]);
 
   const handleDelete = (id) => {

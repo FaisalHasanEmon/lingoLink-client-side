@@ -26,17 +26,13 @@ const AddTutorials = () => {
       language,
       ...leftData,
     };
-    axios
-      .post(`${serverDomain}/addTutorial`, newTutorial)
-      .then((res) => {
-        if (res.data?.acknowledged) {
-          notifySuccess("You've Successfully Added A Tutorial");
-          navigate("/my-tutorials");
-          data.reset();
-        }
-      })
-      .catch((er) => console.log(er));
-    // console.log({ review, price, ...leftData });
+    axios.post(`${serverDomain}/addTutorial`, newTutorial).then((res) => {
+      if (res.data?.acknowledged) {
+        notifySuccess("You've Successfully Added A Tutorial");
+        navigate("/my-tutorials");
+        data.reset();
+      }
+    });
   };
   return (
     <div>
