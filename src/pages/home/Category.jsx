@@ -3,7 +3,7 @@ import { useLoaderData, useParams } from "react-router-dom";
 import FindTutorsCards from "../../components/FindTutorsCards";
 
 const Category = () => {
-  const data = useLoaderData();
+  const data = useLoaderData() || [];
   const { category } = useParams();
 
   return (
@@ -16,7 +16,7 @@ const Category = () => {
       <section>
         <div>
           <div className="grid gird-cols-1 md:grid-cols-3 gap-12">
-            {data.map((tutor) => (
+            {data?.map((tutor) => (
               <FindTutorsCards key={tutor._id} tutor={tutor}></FindTutorsCards>
             ))}
           </div>

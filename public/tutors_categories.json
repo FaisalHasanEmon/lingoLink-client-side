@@ -1,0 +1,47 @@
+[
+  {
+    "category_id": 1,
+    "language": "English",
+    "language_logo": "/language_category_logo/english.png"
+  },
+  {
+    "category_id": 2,
+    "language": "Bangla",
+    "language_logo": "/language_category_logo/bangla.png"
+  },
+  {
+    "category_id": 3,
+    "language": "Hindi",
+    "language_logo": "/language_category_logo/hindi.png"
+  },
+  {
+    "category_id": 4,
+    "language": "Chinese",
+    "language_logo": "/language_category_logo/chinese.png"
+  },
+  {
+    "category_id": 5,
+    "language": "French",
+    "language_logo": "/language_category_logo/french.png"
+  },
+  {
+    "category_id": 6,
+    "language": "Arabic",
+    "language_logo": "/language_category_logo/arabic.png"
+  },
+  {
+    "category_id": 7,
+    "language": "German",
+    "language_logo": "/language_category_logo/german.png"
+  },
+  {
+    "category_id": 8,
+    "language": "Portuguese",
+    "language_logo": "/language_category_logo/portuguese.png"
+  },
+  {
+    "category_id": 9,
+    "language": "Japanese",
+    "language_logo": "/language_category_logo/japanese.png"
+  }
+]

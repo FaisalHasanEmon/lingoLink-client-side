@@ -46,8 +46,8 @@ const Details = () => {
   };
 
   const handleBookTutorial = () => {
-    const userEmail = user.email;
-    const userName = user.displayName;
+    const userEmail = user?.email;
+    const userName = user?.displayName;
     const { _id: tutorId, ...remainingTutorInfo } = tutor;
     const bookedTutorial = {
       tutorId,

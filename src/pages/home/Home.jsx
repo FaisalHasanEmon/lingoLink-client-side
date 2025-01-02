@@ -15,9 +15,7 @@ const Home = () => {
     useState(null);
   // Load Categories UseEffect
   useEffect(() => {
-    axios
-      .get("/src/api/tutors_categories.json")
-      .then((res) => setCategories(res.data));
+    axios.get("tutors_categories.json").then((res) => setCategories(res.data));
   }, [setCategories]);
 
   // Load Number of Tutors Per Categories
@@ -33,26 +31,27 @@ const Home = () => {
       .then((res) => setNumberOfUsersAndTutorials(res.data));
   }, []);
 
-  const stats = [
-    {
-      number: numberOfUsersAndTutorials?.numberOfUsers,
-      state: "Users",
-      icon: <FaUsers />,
-    },
-    {
-      number: numberOfUsersAndTutorials?.numberOfTutorials,
-      state: "Tutorials",
-      icon: <GiBookshelf />,
-    },
-    {
-      number: 9,
-      state: "Languages",
-      icon: <LuLanguages />,
-    },
-  ];
+  const stats =
+    [
+      {
+        number: numberOfUsersAndTutorials?.numberOfUsers,
+        state: "Users",
+        icon: <FaUsers />,
+      },
+      {
+        number: numberOfUsersAndTutorials?.numberOfTutorials,
+        state: "Tutorials",
+        icon: <GiBookshelf />,
+      },
+      {
+        number: 9,
+        state: "Languages",
+        icon: <LuLanguages />,
+      },
+    ] || [];
   // Function Showing the number of teacher in each category
   const tutorNumberInCategory = (tutor_language) => {
-    const numbers = numberOfTutors.find(
+    const numbers = numberOfTutors?.find(
       (tutor) => tutor.language === tutor_language
     );
 
@@ -66,7 +65,7 @@ const Home = () => {
       </div>
       {/* State Section */}
       <section className="lg:w-6/12 mx-auto grid grid-cols-3 gap-2 lg:gap-4 *:border-2 *:border-green-100 *:rounded-lg mt-14 mb-10  *:shadow-orange-300 *:shadow-md ">
-        {stats.map((item, index) => (
+        {stats?.map((item, index) => (
           <div
             key={index}
             className="flex flex-col items-center lg:*:text-3xl p-2 "
@@ -80,7 +79,7 @@ const Home = () => {
       </section>
       {/* category section */}
       <section className="mx-auto w-full lg:w-11/12 grid grid-cols-2  md:grid-cols-3 gap-2 md:gap-4">
-        {categories.map((category) => (
+        {categories?.map((category) => (
           <Link
             key={category.category_id}
             to={`/category/${category.language}`}
@@ -102,7 +101,7 @@ const Home = () => {
                 <figure className="w-6 md:w-10 ">
                   <img
                     className="w-full"
-                    src="/public/language_category_logo/navigate_logo.gif"
+                    src="/language_category_logo/navigate_logo.gif"
                   />
                 </figure>
               </div>

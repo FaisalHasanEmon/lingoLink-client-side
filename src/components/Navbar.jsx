@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import UseAuth from "../context/UseAuth";
-
+import logo from "../assets/LingoLink_Logo.png";
 const Navbar = () => {
   const { logout, user, setUser, theme, setTheme } = UseAuth();
 
@@ -10,7 +10,6 @@ const Navbar = () => {
     logout();
   };
 
-  const logo = user?.photoURL;
   const tabs = (
     <>
       <li>
@@ -87,17 +86,13 @@ const Navbar = () => {
           to="/"
           className="btn btn-ghost text-xl flex justify-center items-center  "
         >
-          <img
-            className="md:h-12 w-[170px] md:w-full"
-            src="/public/LingoLink_Logo.png"
-            alt="Logo"
-          />
+          <img className="md:h-12 w-[170px] md:w-full" src={logo} alt="Logo" />
         </Link>
       </div>
       <div className="flex-none gap-2">
         <div>
           <li>
-            <label className="swap swap-rotate h-9 w-9  *:text-black">
+            <label className="swap swap-rotate h-9 w-9  *:text-black lg:hidden">
               {/* this hidden checkbox controls the state */}
               <input type="checkbox" onClick={() => setTheme(!theme)} />
 
