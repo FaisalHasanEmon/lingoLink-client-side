@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import UseAuth from "../context/UseAuth";
 import { Link } from "react-router-dom";
 import bannerImage from "../assets/banner_image.webp";
 import bannerButtonGif from "../assets/Orange_animated_right_arrow.gif";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Banner = () => {
   const { user } = UseAuth();
@@ -12,9 +14,14 @@ const Banner = () => {
       "Learn from certified teachers that fit your budget and schedule",
       "Connect with a global community of language learners",
     ] || [];
+
+  // Aos animation
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
   return (
     <div className="flex flex-col-reverse  gap-5 md:flex-row justify-between items-center  ">
-      <div>
+      <div data-aos="fade-right">
         <h1 className="text-5xl font-bold">
           Become fluent in any <br /> language
         </h1>
@@ -58,7 +65,7 @@ const Banner = () => {
           )}
         </div>
       </div>
-      <div className="w-[350px] lg:w-[500px]">
+      <div data-aos="fade-left" className="w-[350px] lg:w-[500px]">
         <img src={bannerImage} alt="Banner Image" />
       </div>
     </div>

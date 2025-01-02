@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BsPersonVideo2 } from "react-icons/bs";
 import { FcViewDetails } from "react-icons/fc";
 import { GiStarsStack } from "react-icons/gi";
 import { ImPriceTags } from "react-icons/im";
 import { IoLanguage } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const FindTutorsCards = ({ tutor, cameFrom = "nowhere", handleDelete }) => {
   const { _id, name, email, image, language, price, description, review } =
     tutor;
 
+  // Aos animation
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
+
   return (
-    <div className="card bg-transparent  shadow-xl hover:scale-105 hover:duration-1000">
+    <div
+      data-aos="zoom-in-up"
+      className="card bg-transparent  shadow-xl hover:scale-105 hover:duration-1000"
+    >
       <figure className="overflow-clip">
         <img className="w-full " src={image} alt="Shoes" />
       </figure>

@@ -6,6 +6,8 @@ import Banner from "../../components/Banner";
 import { FaUsers } from "react-icons/fa";
 import { GiBookshelf } from "react-icons/gi";
 import { LuLanguages } from "react-icons/lu";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Home = () => {
   // UseStates
@@ -29,6 +31,11 @@ const Home = () => {
     axios
       .get(`${serverDomain}/countUser&Tutorials`)
       .then((res) => setNumberOfUsersAndTutorials(res.data));
+  }, []);
+
+  // Aos animation
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
   }, []);
 
   const stats =
@@ -67,6 +74,7 @@ const Home = () => {
       <section className="lg:w-6/12 mx-auto grid grid-cols-3 gap-2 lg:gap-4 *:border-2 *:border-green-100 *:rounded-lg mt-14 mb-10  *:shadow-orange-300 *:shadow-md ">
         {stats?.map((item, index) => (
           <div
+            data-aos="zoom-in"
             key={index}
             className="flex flex-col items-center lg:*:text-3xl p-2 "
           >
@@ -83,6 +91,7 @@ const Home = () => {
           <Link
             key={category.category_id}
             to={`/category/${category.language}`}
+            data-aos="flip-down"
           >
             <div className="border-2 border-[#37ff00] hover:bg-orange-300 hover:scale-105 hover:shadow-green-300 hover:shadow-lg shadow-orange-300 shadow-md rounded-lg p-3 flex justify-between items-center ">
               <div className="flex justify-start items-center gap-2 md:gap-4">
